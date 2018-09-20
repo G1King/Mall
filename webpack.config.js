@@ -1,5 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   entry: './src/main.js',
@@ -56,6 +59,16 @@ module.exports = {
         }
       },
       {
+          test:/\.vue$/,
+          use: [{
+            loader: 'iview-loader',
+            options: {
+              prefix: true
+            }
+          }]
+      }
+      ,
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -66,12 +79,21 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+          // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+        }
       }
     ]
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('../src')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
