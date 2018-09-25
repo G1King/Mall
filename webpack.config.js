@@ -1,7 +1,15 @@
 var path = require('path')
 var webpack = require('webpack')
+var config = require('./config')
 function resolve(dir) {
   return path.join(__dirname, dir)
+}
+function assetsPath(_path) {
+  const assetsSubDirectory = process.env.NODE_ENV === 'production' ?
+    config.build.assetsSubDirectory :
+    config.dev.assetsSubDirectory
+
+  return path.posix.join(assetsSubDirectory, _path)
 }
 
 module.exports = {
@@ -77,7 +85,8 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: assetsPath('img/[name].[hash:7].[ext]')
+          
         }
       },
       {

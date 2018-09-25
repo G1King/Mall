@@ -1,8 +1,8 @@
 /*
  * @Author: Leo 
  * @Date: 2018-09-07 16:20:02 
- * @Last Modified by:   Leo 
- * @Last Modified time: 2018-09-07 16:20:02 
+ * @Last Modified by: Leo
+ * @Last Modified time: 2018-09-25 16:12:59
  */
 
 import Vue from 'vue'
@@ -25,6 +25,10 @@ const store = new Vuex.Store({
          title:"手机啊"
        }
      ], // 购物车
+     marketing:{
+          CarouselItems: [], // 轮播图
+          activity: [] // 活动
+     }
    },
    actions,
    mutations,

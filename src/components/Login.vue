@@ -2,7 +2,7 @@
     <div>
      <Row class="container">
          <i-col span="13" class="login-img-box">
-         <img src="../assets/sale.jpg" alt="">
+         <img src="../../assets/sale.jpg" alt="">
          </i-col>
          <i-col span="7" class="login-box">
              <div class="login-wrapper">
